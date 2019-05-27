@@ -1,13 +1,9 @@
+# frozen_string_literal: true
+
 class ProductsController < ApplicationController
-  before_action :set_product
-
   def show
-    render json: @product
-  end
+    product = Product.find(params[:id])
 
-  private
-
-  def set_product
-    @product = Product.find(params[:id] || params[:product_id])
+    render json: product, serializer: ProductSerializer
   end
 end

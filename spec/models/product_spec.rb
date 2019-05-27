@@ -1,15 +1,13 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe Product, type: :model do
-  it 'has a valid factory' do
-    expect(build(:product)).to be_valid
-  end
+  subject(:product) { build(:product) }
 
-  it 'is invalid without the name' do
-    expect(build(:product, name: '')).not_to be_valid
-  end
-
-  it 'is invalid without the ext_id' do
-    expect(build(:product, ext_id: '')).not_to be_valid
+  describe 'validations' do
+    it { should validate_presence_of(:name) }
+    it { should validate_presence_of(:ext_id) }
+    it { should validate_uniqueness_of(:ext_id) }
   end
 end

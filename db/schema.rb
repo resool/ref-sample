@@ -10,14 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2016_03_02_133226) do
+ActiveRecord::Schema.define(version: 2019_05_27_060745) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "products", id: :serial, force: :cascade do |t|
-    t.string "ext_id"
-    t.string "name"
+    t.string "ext_id", null: false
+    t.string "name", null: false
     t.index ["ext_id"], name: "index_products_on_ext_id", unique: true
   end
 

@@ -7,15 +7,17 @@ gem 'rails', '~> 5.2.3'
 gem 'pg'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
-# Build JSON APIs with ease. Read more: ht  tps://github.com/rails/jbuilder
-gem 'jbuilder', '~> 2.5'
 gem 'haml'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
+gem 'config'
+gem 'active_model_serializers', '~> 0.10.0'
 
 group :test do
   gem 'rspec-rails', '~> 3.0'
   gem 'faker'
+  gem 'webmock'
+  gem 'shoulda-matchers'
 end
 
 group :test, :development do
@@ -24,6 +26,7 @@ group :test, :development do
 end
 
 group :development do
+  gem 'rubocop'
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
   gem 'web-console', '>= 3.3.0'
   gem 'listen', '>= 3.0.5', '< 3.2'

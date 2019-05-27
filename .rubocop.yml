@@ -4,5 +4,6 @@ AllCops:
     - 'config/**/*'
     - 'script/**/*'
     - 'bin/*'
+    - 'Rakefile'
 Style/Documentation:
   Enabled: false

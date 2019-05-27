@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-ENV["RAILS_ENV"] ||= 'test'
+ENV['RAILS_ENV'] ||= 'test'
 
-require File.expand_path("../../config/environment", __FILE__)
+require File.expand_path('../config/environment', __dir__)
 require 'rspec/rails'
 require 'webmock/rspec'
 WebMock.disable_net_connect!(allow_localhost: true)
@@ -24,9 +24,9 @@ RSpec.configure do |config|
   end
 
   config.before(:each) do
-    stub_request(:get, /api.example.com/).
-      with(headers: {'Accept'=>'*/*', 'User-Agent'=>'Ruby'}).
-      to_return(
+    stub_request(:get, /api.example.com/)
+      .with(headers: { 'Accept' => '*/*', 'User-Agent' => 'Ruby' })
+      .to_return(
         status: 200,
         body: {
           data:
@@ -37,7 +37,7 @@ RSpec.configure do |config|
               other_column: 'bleh'
             ]
         }.to_json,
-        headers: {"Content-Type"=> "application/json"}
+        headers: { 'Content-Type' => 'application/json' }
       )
   end
 end

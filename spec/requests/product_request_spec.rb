@@ -9,10 +9,10 @@ RSpec.describe 'Product requests', type: :request do
     it 'returns products info' do
       get "/products/#{product.id}"
 
-      expect(JSON.parse(response.body)).to include({
+      expect(JSON.parse(response.body)).to include(
         'name' => product.name,
         'ext_id' => product.ext_id
-      })
+      )
     end
   end
 end

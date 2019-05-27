@@ -17,11 +17,11 @@ describe Products::DetailsFetcher, type: :service do
     end
 
     it 'return details information of product' do
-      expect(service.call.data).to include({
+      expect(service.call.data).to include(
         title: 'Sample title',
         department: 'Sample department',
         media_avatar: 'avatar url'
-      })
+      )
     end
   end
 
